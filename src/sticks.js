@@ -18,7 +18,23 @@ stick lengths     length of cut     sticks before cut
 - - - - - -         done              done
 */
 function solution(arr){
-  // TODO: Create the solution
+  if (!arr) return [];
+  let beforeCut = [];
+  let newArr = arr;
+  while (newArr.length > 0){
+    let min = newArr[0];
+    for (let i = 1; i < newArr.length; i++){
+      if (newArr[i] < min) min = newArr[i];
+    };
+    beforeCut.push(newArr.length);
+    newArr = newArr.map(stick => {
+      stick - min;
+    });
+    newArr = newArr.filter(stick => {
+      stick > min;
+    });
+  }
+  return beforeCut;
 }
 
 module.exports = solution;

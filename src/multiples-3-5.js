@@ -2,7 +2,24 @@
 // Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
 // Note: If the number is a multiple of both 3 and 5, only count it once.
 function solution(number){
-  // TODO: Create the solution
+  if (number === 0) return 0;
+  if (number === null) return -1;
+  if (!(typeof number === 'number')) return -1;
+  let nums = [3, 5];
+  let results = [];
+  nums.forEach(num => {
+    let count = 1;
+    while (count < number){
+      let result = num * count;
+      if (result < number) {
+        results.push(result);
+      }
+      count++;
+    }
+  });
+  let total = 0
+  results.forEach(num => total += num);
+  return total;
 }
 
 module.exports = solution;
